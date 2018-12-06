@@ -5,13 +5,18 @@
     <title-bar/>
 
     <!-- book footer -->
-    <foot-bar 
-    :fontSizeList="fontSizeList" 
-    :defaultFontSize="defaultFontSize"
-    :defaultTheme="defaultTheme"
-    :themeList="themeList"
-    @setTheme="setTheme"
-    @setFontSize="setFontSize"
+    <foot-bar
+      ref="titleBar" 
+      :fontSizeList="fontSizeList" 
+      :defaultFontSize="defaultFontSize"
+      :defaultTheme="defaultTheme"
+      :themeList="themeList"
+      @setTheme="setTheme"
+      @setFontSize="setFontSize"
+      :bookAvailable="bookAvailable"
+      @onProgressChange="onProgressChange"
+      :navigation="navigation"
+      @jumpTo="jumpTo"
     />
 
     <!-- book content -->
@@ -86,10 +91,10 @@ export default {
           }
         }
       ],
+      // 图书是否处于可用状态
+      bookAvailable: false,
+      navigation: {}
     };
-  },
-  computed: {
-
   },
   mounted() {
     this.$store.dispatch("book/setFileName", this.$route.params.fileName).then(() => {
@@ -132,6 +137,17 @@ export default {
       this.registerTheme()
       // 设置默认主题
       this.setTheme(this.defaultTheme)
+      // Book对象的钩子函数ready
+      this.book.ready.then(() => {
+        this.navigation = this.book.navigation
+        // 生成Locations对象
+        return this.book.locations.generate()
+      }).then(result => {
+        // 保存locations对象
+        this.locations = this.book.locations
+        // 标记电子书为解析完毕状态
+        this.bookAvailable = true
+      })
     },
     prevPage() {
       if (this.rendition) {
@@ -168,6 +184,17 @@ export default {
       this.themeList.forEach(theme => {
         this.themes.register(theme.name, theme.style)
       })
+    },
+    // progress 进度条的数值（0-100）
+    onProgressChange(progress) {
+      const percentage = progress / 100
+      const location = percentage > 0 ? this.locations.cfiFromPercentage(percentage) : 0
+      this.rendition.display(location)
+    },
+    // 根据链接跳转到指定位置
+    jumpTo(href) {
+      this.rendition.display(href)
+      this.toggleTitleAndMenu()
     },
   },
 };
