@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?fno3wu');
+  src:  url('fonts/icomoon.eot?fno3wu#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fno3wu') format('truetype'),
+    url('fonts/icomoon.woff?fno3wu') format('woff'),
+    url('fonts/icomoon.svg?fno3wu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+  content: "\e900";
+}
+.icon-back:before {
+  content: "\e901";
+}
+.icon-close:before {
+  content: "\e902";
+}
+.icon-delete:before {
+  content: "\e903";
+}
+.icon-down:before {
+  content: "\e904";
+}
+.icon-duihuan:before {
+  content: "\e905";
+}
+.icon-file:before {
+  content: "\e906";
+}
+.icon-game:before {
+  content: "\e907";
+}
+.icon-good:before {
+  content: "\e908";
+}
+.icon-help:before {
+  content: "\e909";
+}
+.icon-home:before {
+  content: "\e90a";
+}
+.icon-king:before {
+  content: "\e90b";
+}
+.icon-left:before {
+  content: "\e90c";
+}
+.icon-logistics:before {
+  content: "\e90d";
+}
+.icon-look:before {
+  content: "\e90e";
+}
+.icon-masonry:before {
+  content: "\e90f";
+}
+.icon-message:before {
+  content: "\e910";
+}
+.icon-modify:before {
+  content: "\e911";
+}
+.icon-more:before {
+  content: "\e912";
+}
+.icon-music:before {
+  content: "\e913";
+}
+.icon-password:before {
+  content: "\e914";
+}
+.icon-phone:before {
+  content: "\e915";
+}
+.icon-picture:before {
+  content: "\e916";
+}
+.icon-right:before {
+  content: "\e917";
+}
+.icon-search:before {
+  content: "\e918";
+}
+.icon-setting:before {
+  content: "\e919";
+}
+.icon-share:before {
+  content: "\e91a";
+}
+.icon-timer:before {
+  content: "\e91b";
+}
+.icon-top:before {
+  content: "\e91c";
+}
+.icon-up:before {
+  content: "\e91d";
+}
+.icon-user:before {
+  content: "\e91e";
+}
+.icon-voice:before {
+  content: "\e91f";
+}
+.icon-warning:before {
+  content: "\e920";
+}
